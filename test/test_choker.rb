@@ -5,4 +5,4 @@ class ChokerTest < Minitest::Test
 end
 
 require_relative 'choker_test/general'
-require_relative 'choker_test/postgres'
+require_relative 'choker_test/sql'
