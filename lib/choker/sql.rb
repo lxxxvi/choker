@@ -11,7 +11,7 @@ class Choker::Sql
   private
 
   def self.clean(string)
-    string.gsub(/[;(\-\-)(\/\*)]/, '')
+    string.gsub(/(;|\-\-|\/\*)/, '')
   end
 end
 

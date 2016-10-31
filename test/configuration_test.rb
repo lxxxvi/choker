@@ -1,4 +1,6 @@
-class ChokerTest::General::Configuration < ChokerTest::General
+require 'test_helper'
+
+class Choker::ConfigurationTest < Minitest::Test
   def test_default_configuration
     Choker.reset_to_defaults
     assert_equal :postgres, Choker.configuration.database_engine
