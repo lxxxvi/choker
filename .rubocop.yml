@@ -1,2 +1,14 @@
 Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
