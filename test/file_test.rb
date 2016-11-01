@@ -25,13 +25,13 @@ module Choker
       assert_equal 10, artists_file.line_count
     end
 
-    def test_header_row_option_default
-      assert_equal '"artist_name","main_genre"', artists_file.header_row
+    def test_first_row_is_header_option_default
+      assert_equal true, artists_file.first_row_is_header
     end
 
-    def test_header_row_option_false
-      file = Choker::File.new(NO_HEADER_PATH, header_row: false)
-      assert_equal nil, file.header_row
+    def test_first_row_is_header_option_false
+      file = Choker::File.new(NO_HEADER_PATH, first_row_is_header: false)
+      assert_equal false, file.first_row_is_header
     end
 
     private
