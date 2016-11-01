@@ -1,5 +1,6 @@
 require 'choker/version'
 require 'choker/configuration'
+require 'choker/sql'
 
 module Choker
   class << self
