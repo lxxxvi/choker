@@ -3,9 +3,9 @@ require 'test_helper'
 module Choker
   class FileTest < Minitest::Test
     INVALID_PATH = ''.freeze
-    ARTISTS_PATH = 'test/files/artists.csv'.freeze
-    NOT_SUPPORTED_PATH = 'test/files/not_supported.xlsx'.freeze
-    NO_HEADER_PATH = 'test/files/no_header.csv'.freeze
+    ARTISTS_PATH = "#{TEST_FILES_DIR}/artists.csv".freeze
+    NOT_SUPPORTED_PATH = "#{TEST_FILES_DIR}/not_supported.xlsx".freeze
+    NO_HEADER_PATH = "#{TEST_FILES_DIR}/no_header.csv".freeze
 
     def test_wrong_filepath
       exception = assert_raises(RuntimeError) { Choker::File.new(INVALID_PATH) }
