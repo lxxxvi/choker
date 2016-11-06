@@ -18,8 +18,7 @@ module Choker
     end
 
     def line_count
-      lines = `wc -l #{@path}`[/ +([0-9]{1,})?/, 1]
-      lines.to_i
+      ::File.foreach(@path).count
     end
 
     def first_row_column_names
