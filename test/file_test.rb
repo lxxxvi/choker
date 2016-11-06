@@ -26,12 +26,21 @@ module Choker
     end
 
     def test_first_row_is_header_option_default
-      assert_equal true, artists_file.first_row_is_header
+      assert_equal true, artists_file.first_row_is_header?
     end
 
     def test_first_row_is_header_option_false
       file = Choker::File.new(NO_HEADER_PATH, first_row_is_header: false)
-      assert_equal false, file.first_row_is_header
+      assert_equal false, file.first_row_is_header?
+    end
+
+    def test_first_row_is_header_option_true # same as default
+      file = Choker::File.new(NO_HEADER_PATH, first_row_is_header: true)
+      assert_equal true, file.first_row_is_header?
+    end
+
+    def test_first_row_column_names
+      assert_equal [:artist_name, :main_genre], artists_file.first_row_column_names
     end
 
     private
