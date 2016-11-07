@@ -12,6 +12,10 @@ module Choker
       @options = options
     end
 
+    def name
+      ::File.basename(@path)
+    end
+
     def supported_file_type?
       file_type = ::File.extname(@path)[1..-1].to_sym
       SUPPORTED_FILE_TYPES.include?(file_type)

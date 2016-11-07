@@ -14,6 +14,10 @@ module Choker
       (1..count).map { |i| "column_#{i}".to_sym }
     end
 
+    def table_name
+      @table ||= [Choker.configuration.import_table_name_prefix, Choker::Sql.tablenameize(@file.name)].join
+    end
+
     private
 
     def validate

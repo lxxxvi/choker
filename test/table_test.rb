@@ -29,6 +29,10 @@ module Choker
       assert_equal 'Duplicate column names ([{:column_name=>:i, :count=>2}])', exception.message
     end
 
+    def test_table_name
+      assert_equal 'choker_artists_csv', Choker::Table.new(artists_file).table_name
+    end
+
     private
 
     def artists_file

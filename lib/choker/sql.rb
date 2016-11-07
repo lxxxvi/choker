@@ -14,6 +14,12 @@ module Choker
       columns.map { |column| clean_column_name(column).to_sym }
     end
 
+    def self.tablenameize(string)
+      string.tr!('.', '_')
+      string = clean_sql(string)
+      string.gsub(/[^0-9a-z_]/, '')
+    end
+
     private
 
     def self.clean_sql(string)
@@ -31,3 +37,4 @@ module Choker
 end
 
 require_relative 'sql/select'
+require_relative 'sql/drop'

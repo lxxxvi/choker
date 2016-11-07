@@ -17,5 +17,9 @@ module Choker
     def test_underlines_not_removed_from_column_names
       assert_equal [:abc_def], Choker::Sql.column_names('abc_def')
     end
+
+    def test_tablenameize
+      assert_equal 'table_name_csv', Choker::Sql.tablenameize('table_name.csv; --')
+    end
   end
 end
