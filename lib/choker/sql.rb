@@ -1,12 +1,12 @@
 module Choker
   class Sql
     def self.sql(query_string, *args)
-      query_pieces = "#{query_string};".split('?')[0..-2]
-      raise :substition_count_mismatch if (query_pieces.count - args.count).nonzero?
+      query_pieces = "#{query_string};".split('?')
+      raise :substition_count_mismatch unless (query_pieces.count - args.count) == 1
 
       safe_args = args.map { |arg| clean_sql(arg) }
 
-      query_pieces.zip(safe_args).flatten.compact.join
+      query_pieces.zip(safe_args).flatten.compact.join.gsub(/;$/, '')
     end
 
     def self.column_names(string)
@@ -38,3 +38,4 @@ end
 
 require_relative 'sql/select'
 require_relative 'sql/drop'
+require_relative 'sql/create'

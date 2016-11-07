@@ -2,6 +2,13 @@ require 'test_helper'
 
 module Choker
   class SqlTest < Minitest::Test
+
+    def test_sql_cleaner
+      assert_equal 'SELECT * FROM chicago', Choker::Sql.sql('SELECT * FROM ?', 'chicago')
+      assert_equal 'SELECT street FROM dublin', Choker::Sql.sql('SELECT ? FROM ?', 'street', 'dublin')
+      assert_equal 'CREATE TABLE edinburgh ( castle VARCHAR NULL )', Choker::Sql.sql('CREATE TABLE ? ( ? VARCHAR NULL )', 'edinburgh', 'castle')
+    end
+
     def test_correct_string_to_column_names
       assert_equal [:a, :b, :c], Choker::Sql.column_names('"a","b","c"')
     end
