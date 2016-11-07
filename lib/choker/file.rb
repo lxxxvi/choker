@@ -30,6 +30,10 @@ module Choker
       @first_row_is_header ||= read_first_row_is_header_option
     end
 
+    def column_count
+      CSV.parse(first_row_from_file).first.count
+    end
+
     private
 
     def read_first_row_is_header_option
