@@ -15,7 +15,8 @@ module Choker
     end
 
     def test_column_name_precedence_dummy_columns
-      assert_equal [:column_1, :column_2], Choker::Table.new(artists_file).column_names
+      file = Choker::File.new(Choker::FileTest::ARTISTS_PATH, first_row_is_header: false)
+      assert_equal [:column_1, :column_2], Choker::Table.new(file).column_names
     end
 
     def test_column_count_mismatch
