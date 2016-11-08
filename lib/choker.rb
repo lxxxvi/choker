@@ -2,6 +2,7 @@ require 'choker/version'
 require 'choker/configuration'
 require 'choker/sql'
 require 'choker/file'
+require 'choker/table'
 
 module Choker
   class << self

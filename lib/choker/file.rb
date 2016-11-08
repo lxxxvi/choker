@@ -12,6 +12,10 @@ module Choker
       @options = options
     end
 
+    def name
+      ::File.basename(@path)
+    end
+
     def supported_file_type?
       file_type = ::File.extname(@path)[1..-1].to_sym
       SUPPORTED_FILE_TYPES.include?(file_type)
@@ -28,6 +32,10 @@ module Choker
 
     def first_row_is_header?
       @first_row_is_header ||= read_first_row_is_header_option
+    end
+
+    def column_count
+      CSV.parse(first_row_from_file).first.count
     end
 
     private
